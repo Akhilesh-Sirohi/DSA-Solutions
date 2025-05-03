@@ -11,6 +11,26 @@ https://atcoder.jp/contests/dp/tasks/dp_m
 Time Complexity = O(n^K)
 */
 
+/*
+    why we can't use combinatrics:
+        1. number of solutions for where sum of n `non-negative` numbers is equals to K = (K+n-1)C(n-1) =>  
+        2. number of for solutions where sum of n `non-negative` numbers is equals to K, 
+            Given the condition, where each number have a lower limit l :
+                i.e a1+ a2 ... + an = K but a1> l1 && a2>l2... an>ln
+                (a1'+l1+1) + (a2'+l2+1) + ... + (an'+ln+1) = K , where a1',a2'... an' are `non-negative` numbers with no limit
+                a1'+a2'...an' = K-(l1+l2+l3...ln +  n) = K'
+                So number of ways = (K'+n-1)C(n-1)
+        3. number of for solutions where sum of n `non-negative` numbers is equals to K
+            i.e a1+ a2+...+ an = K but a<=l1 && a2<=l2 
+                => Number of Ways(a1+a2+a3..an=K, where a1,a2,a3..an>=0) -  
+                                Number of Ways(a1+a2+a3..an=K, where a1>l1,a2>l2,a3>l3..an>ln)
+                => (K+n-1)C(n-1) - (K'+n-1)C(n-1) // where K' = K-(l1+l2+l3...ln+n)
+        
+    We can't use combinatrics because:
+        4. K' can be negative
+        5. Also in step 2 => there can be case where a1 <l1 but all other are greater.
+*/
+
 int getNumberOfWays(vector<int>&A, int K){
     int n=A.size();
     /*
