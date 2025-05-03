@@ -38,7 +38,7 @@ void solve(){
     cin>>n;
     vector<double>P(n);
     for(int i=0;i<n;i++) cin>>P[i];
-    cout<<getProbabilityOfMoreHeads(P);
+    cout<<setprecision(15)<<getProbabilityOfMoreHeads(P);
 }
 
 signed main() {
