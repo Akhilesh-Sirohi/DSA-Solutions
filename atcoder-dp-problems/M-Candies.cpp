@@ -8,7 +8,7 @@ const int Max=2e5+5;
 /*
 https://atcoder.jp/contests/dp/tasks/dp_m
 
-Time Complexity = O(n^K)
+Time Complexity = O(n*K)
 */
 
 /*
